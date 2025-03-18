@@ -86,25 +86,25 @@ def read_from_binary(binary_file):
 def main(input_file, danger_file, binary_file):
     # 메인 함수: 인벤토리 데이터를 처리하고 결과를 출력 및 저장
 
-    # 1. CSV 파일 읽기
+    # CSV 파일 읽기
     header, data = read_csv_file(input_file)
 
-    # 2. 인화성 지수로 정렬
+    # 인화성 지수로 정렬
     sorted_data = sort_by_flammability(data)
 
-    # 3. 정렬된 데이터 출력
+    # 정렬된 데이터 출력
     print_inventory(header, sorted_data)
 
-    # 4. 인화성 지수가 0.7 이상인 항목 추출 및 출력
+    # 인화성 지수가 0.7 이상인 항목 추출 및 출력
     high_flammability = extract_high_flammability(sorted_data)
     print("\n인화성 지수가 0.7 이상인 항목:")
     for item in high_flammability:
         print(",".join(item))
 
-    # 5. 추출한 항목을 CSV로 저장
+    # 추출한 항목을 CSV로 저장
     save_to_csv(header, high_flammability, danger_file)
 
-    # 6. 이진 파일 저장 및 읽기
+    # 이진 파일 저장 및 읽기
     save_to_binary(sorted_data, binary_file)
     read_from_binary(binary_file)
 
