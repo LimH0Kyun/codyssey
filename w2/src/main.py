@@ -8,7 +8,7 @@ def read_csv_file(file_path):
     try:
         with open(file_path, "r") as file:
             lines = file.readlines()
-            # 첫 번째 줄은 헤더로 가정
+            # 첫 번째 줄은 헤더, 제거
             header = lines[0].strip().split(",")
             data = [line.strip().split(",") for line in lines[1:]]
             return header, data
@@ -115,3 +115,13 @@ if __name__ == "__main__":
         print("사용법: python main.py <input_file> <danger_file> <binary_file>")
         sys.exit(1)
     main(sys.argv[1], sys.argv[2], sys.argv[3])
+
+# 텍스트 파일과 이진 파일 형태의 차이점과 장단점
+"""
+텍스트 파일은 가독성과 편집 용이성이 뛰어나 설정 파일이나 로그 기록처럼 사람이 자주 다뤄야 하는 경우에 적합
+하지만 용량이 크고 복잡한 데이터를 다루기 어렵고,
+
+이진 파일은 크기 효율성과 데이터 정밀도가 높아
+이미지, 오디오, 대용량 데이터 저장에 유리하지만
+사람이 직접 다루기 어렵고 호환성 문제가 생길 수 있다.
+"""

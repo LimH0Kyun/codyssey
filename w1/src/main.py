@@ -6,7 +6,11 @@ def read_log_file(file_path):
     # 로그 파일을 읽고 라인 리스트를 반환
     try:
         with open(file_path, "r") as file:
-            return file.readlines()
+            lines = file.readlines()
+            # 첫 번째 줄은 헤더, 제거
+            header = lines[0].strip().split(",")
+            data = [line.strip().split(",") for line in lines[1:]]
+            return header, data
     except FileNotFoundError:
         print("파일을 찾을 수 없습니다.")
         sys.exit(1)
@@ -74,4 +78,3 @@ if __name__ == "__main__":
         print("사용법: python main.py <log_file_path> <output_file_path>")
         sys.exit(1)
     main(sys.argv[1], sys.argv[2])
-    
