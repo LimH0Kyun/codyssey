@@ -111,6 +111,7 @@ def main(input_file, danger_file, binary_file):
 
 if __name__ == "__main__":
     if len(sys.argv) < 4:
+        # python .\w2\src\main.py .\w2\data\raw\Mars_Base_Inventory_List.csv .\w2\data\processed\Mars_Base_Inventory_danger.csv .\w2\data\processed\Mars_Base_Inventory_List.bin
         print("사용법: python main.py <input_file> <danger_file> <binary_file>")
         sys.exit(1)
     main(sys.argv[1], sys.argv[2], sys.argv[3])

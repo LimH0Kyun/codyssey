@@ -70,7 +70,7 @@ def main(log_file_path, output_file):
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        # python main.py
+        # python .\w1\src\main.py .\w1\logs\mission_computer_main.log .\w1\logs\problem_logs.log
         print("사용법: python main.py <log_file_path> <output_file_path>")
         sys.exit(1)
     main(sys.argv[1], sys.argv[2])
