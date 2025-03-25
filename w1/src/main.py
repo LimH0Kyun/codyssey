@@ -25,18 +25,21 @@ def read_log_file(file_path):
         print(f"예상치 못한 오류가 발생했습니다: {e}")
         exit(1)
 
+
 def sort_lines_by_timestamp(lines):
     # 타임스탬프 기준으로 로그 라인을 정렬
     header = lines[0]
-    data_lines = lines[1]  # 데이터 리스트를 직접 접근
+    data_lines = lines[1]
     sorted_lines = sorted(data_lines, key=lambda x: x[0], reverse=True)
     return header, sorted_lines
+
 
 def print_logs(header, sorted_lines):
     # 로그를 콘솔에 출력
     print(",".join(header))
     for line in sorted_lines:
         print(",".join(line))
+
 
 def extract_problem_lines(lines, problem_messages):
     # 문제 메시지를 포함한 라인을 추출
@@ -46,6 +49,7 @@ def extract_problem_lines(lines, problem_messages):
         for line in data_lines
         if any(msg.lower() in ",".join(line).lower() for msg in problem_messages)
     ]
+
 
 def save_problem_logs(header, problem_lines, output_file):
     # 문제 로그를 파일에 저장
@@ -58,8 +62,12 @@ def save_problem_logs(header, problem_lines, output_file):
     except Exception as e:
         print(f"파일 저장 중 오류가 발생했습니다: {e}")
 
-def main(log_file_path, output_file):
+
+def main():
     # 메인 함수: 로그 파일 처리 및 문제 로그 저장
+    log_file_path = "./w1/logs/mission_computer_main.log"
+    output_file = "./w1/logs/problem_logs.log"
+
     lines = read_log_file(log_file_path)
     header, sorted_lines = sort_lines_by_timestamp(lines)
     print_logs(header, sorted_lines)
@@ -68,7 +76,7 @@ def main(log_file_path, output_file):
     problem_lines = extract_problem_lines(lines, problem_messages)
     save_problem_logs(header, problem_lines, output_file)
 
+
 # 실행
-log_file_path = "./w1/logs/mission_computer_main.log"
-output_file = "./w1/logs/problem_logs.log"
-main(log_file_path, output_file)
+if __name__ == "__main__":
+    main()
