@@ -2,6 +2,7 @@ import random
 
 
 class DummySensor:
+    # 초기화
     def __init__(self):
         self.env_values = {
             "mars_base_internal_temperature": 0,
@@ -23,7 +24,7 @@ class DummySensor:
 
     def get_env(self):
         # env_values를 반환하고 로그 파일에 기록
-        timestamp = "2025-01-01 00:00:00"
+        timestamp = "2025-03-27 00:00:00"
 
         # 로그 메시지 생성
         log_message = (
