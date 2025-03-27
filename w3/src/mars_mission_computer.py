@@ -1,5 +1,5 @@
 import random
-
+# import datetime
 
 class DummySensor:
     # 초기화
@@ -14,7 +14,7 @@ class DummySensor:
         }
 
     def set_env(self):
-        # 환경 값을 랜덤으로 생성하여 env_values에 저장
+        # 환경 값을 랜덤으로 생성하여 env_values에 저장 (round 추가)
         self.env_values["mars_base_internal_temperature"] = round(random.uniform(18, 30), 2)
         self.env_values["mars_base_external_temperature"] = round(random.uniform(0, 21), 2)
         self.env_values["mars_base_internal_humidity"] = round(random.uniform(50, 60), 2)
@@ -24,6 +24,10 @@ class DummySensor:
 
     def get_env(self):
         # env_values를 반환하고 로그 파일에 기록
+        
+        # now = datetime.datetime.now()
+        # timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
+        # 제약사항에서 datetime을 사용해도 된다고 명시하지 않아서 고정값으로 설정
         timestamp = "2025-03-27 00:00:00"
 
         # 로그 메시지 생성
