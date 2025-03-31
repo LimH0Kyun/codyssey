@@ -100,25 +100,26 @@ def sort_log_file():
         print(f"파일을 읽거나 쓸 때 오류가 발생했습니다: {e}")
 
 
-# DummySensor
-ds = DummySensor()
-ds.set_env()
+if __name__ == "__main__":
+    # DummySensor
+    ds = DummySensor()
+    ds.set_env()
 
-# 시간 입력 받기
+    # 시간 입력 받기
 
-# datetime 사용
-# now = datetime.datetime.now()
-# timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
+    # datetime 사용
+    # now = datetime.datetime.now()
+    # timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
 
-# 제약사항에서 datetime을 사용해도 된다고 명시하지 않아서 고정값으로 설정
-# timestamp = "2025-03-27 00:00:00"
+    # 제약사항에서 datetime을 사용해도 된다고 명시하지 않아서 고정값으로 설정
+    # timestamp = "2025-03-27 00:00:00"
 
-# 고정값보다 사용자에게 입력받도록 리팩토링
-timestamp = get_valid_timestamp()
+    # 고정값보다 사용자에게 입력받도록 리팩토링
+    timestamp = get_valid_timestamp()
 
-# 환경 변수와 로그 메시지 출력
-env_data = ds.get_env(timestamp)
-print(env_data)
+    # 환경 변수와 로그 메시지 출력
+    env_data = ds.get_env(timestamp)
+    print(env_data)
 
-# 로그 파일 정렬
-sort_log_file()
+    # 로그 파일 정렬
+    sort_log_file()
