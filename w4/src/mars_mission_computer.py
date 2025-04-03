@@ -38,7 +38,7 @@ class DummySensor:
             f'내부 산소: {self.env_values["mars_base_internal_oxygen"]:.2f}\n\n'
         )
         try:
-            with open('./w3/data/processed/mars_mission_log.txt', 'a') as log_file:
+            with open('./w4/data/processed/mars_mission_log.txt', 'a') as log_file:
                 log_file.write(log_message)
         except IOError as e:
             print(f'파일을 쓸 때 오류가 발생했습니다: {e}')
