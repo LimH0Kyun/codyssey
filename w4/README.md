@@ -14,7 +14,7 @@ env_values라는 속성 안에는 다음과 같은 내용들이 구현 되어야
 회성 기지 외부 광량 (mars_base_external_illuminance)
 화성 기지 내부 이산화탄소 농도 (mars_base_internal_co2)
 화성 기지 내부 산소 농도 (mars_base_internal_oxygen)
-문제 3에서 제작한 DummySensor 클래스를 ds라는 이름으로 인스턴스화 시킨다. 
+문제 3에서 제작한 DummySensor 클래스를 ds라는 이름으로 인스턴스화 시킨다.
 MissionComputer에 get_sensor_data() 메소드를 추가한다. 
 get_sensor_data() 메소드에 다음과 같은 세 가지 기능을 추가한다. 
 센서의 값을 가져와서 env_values에 담는다. 
